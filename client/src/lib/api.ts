@@ -3,7 +3,7 @@ import { useAuthStore } from '@/store/authStore';
 
 // Use Vite proxy (baseURL='/api' proxied to http://localhost:3001 via vite.config.ts)
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3001/api',
   headers: { 'Content-Type': 'application/json' },
   timeout: 30000, // 30s timeout for AI calls
 });
