@@ -1,0 +1,199 @@
+/* ============================================================
+   CITE — THEME SYSTEM
+   Apply class to <html>: theme-dark | theme-light | theme-colorful
+   ============================================================ */
+
+/* Base: smooth theme transitions on layout properties only */
+body,
+main,
+aside,
+header,
+footer,
+section,
+article,
+div {
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* ============================================================
+   DARK THEME (default)
+   ============================================================ */
+html.theme-dark {
+  --bg-primary:     #080B14;
+  --bg-secondary:   #0D1220;
+  --bg-card:        #111827;
+  --bg-elevated:    #161F35;
+  --bg-sidebar:     #0D1220;
+  --bg-topbar:      rgba(8,11,20,0.9);
+  --text-primary:   #FFFFFF;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-muted:     rgba(255,255,255,0.3);
+  --border-default: rgba(255,255,255,0.07);
+  --border-subtle:  rgba(255,255,255,0.03);
+  --shadow-card:    0 4px 24px rgba(0,0,0,0.3);
+  --input-bg:       rgba(255,255,255,0.04);
+  --input-border:   rgba(255,255,255,0.08);
+}
+
+html.theme-dark body {
+  background-color: #080B14;
+  color: #fff;
+}
+
+html.theme-dark aside {
+  background: #0D1220;
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
+
+html.theme-dark header.theme-topbar {
+  background: rgba(8,11,20,0.9);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ============================================================
+   LIGHT THEME — Apple Liquid Glass
+   Soft gradient bg, frosted-glass cards, dark text, dark sidebar
+   ============================================================ */
+html.theme-light {
+  --bg-primary:     #E8EEF8;
+  --bg-secondary:   rgba(255,255,255,0.55);
+  --bg-card:        rgba(255,255,255,0.72);
+  --bg-elevated:    rgba(255,255,255,0.88);
+  --bg-sidebar:     #1C2035;
+  --bg-topbar:      rgba(232,238,248,0.85);
+  --text-primary:   #0D1117;
+  --text-secondary: #2D3748;
+  --text-muted:     #64748B;
+  --border-default: rgba(148,163,184,0.35);
+  --border-subtle:  rgba(148,163,184,0.18);
+  --shadow-card:    0 8px 32px rgba(15,23,42,0.10), 0 1px 2px rgba(15,23,42,0.06), inset 0 1px 0 rgba(255,255,255,0.8);
+  --input-bg:       rgba(255,255,255,0.75);
+  --input-border:   rgba(148,163,184,0.4);
+  --glass-blur:     12px;
+}
+
+html.theme-light body {
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(186,230,255,0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 0%,  rgba(216,180,254,0.4)  0%, transparent 50%),
+    radial-gradient(ellipse at 60% 90%, rgba(186,230,255,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 80%, rgba(167,243,208,0.3)  0%, transparent 45%),
+    linear-gradient(160deg, #dbeafe 0%, #ede9fe 40%, #e0f2fe 70%, #dcfce7 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  color: #0D1117;
+}
+
+/* Main content transparent so body gradient shows */
+html.theme-light main {
+  background: transparent !important;
+  min-height: 100vh;
+}
+
+/* app-shell-root and #root transparent */
+html.theme-light .app-shell-root { background: transparent !important; }
+html.theme-light #root { background: transparent !important; }
+
+/* Light: topbar — frosted glass */
+html.theme-light header.theme-topbar {
+  background: rgba(232,238,248,0.82) !important;
+  border-bottom: 1px solid rgba(148,163,184,0.3) !important;
+  backdrop-filter: blur(24px) saturate(1.8) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(1.8) !important;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.6), 0 2px 12px rgba(15,23,42,0.06) !important;
+}
+html.theme-light header.theme-topbar h1 { color: #0D1117 !important; }
+html.theme-light header.theme-topbar p  { color: #64748B !important; }
+html.theme-light header.theme-topbar span { color: #2D3748 !important; }
+
+/* Light: sidebar stays dark */
+html.theme-light aside {
+  background: linear-gradient(180deg, #1C2035 0%, #141826 100%) !important;
+  border-right: 1px solid rgba(255,255,255,0.07) !important;
+}
+
+/* ============================================================
+   COLORFUL THEME
+   Jewel-toned: deep violet/navy base, glassy cards, bright
+   lavender text, vivid neon accents — clearly NOT light or dark.
+   ============================================================ */
+html.theme-colorful {
+  --bg-primary:     #1A0533;
+  --bg-secondary:   #0D1B4B;
+  --bg-card:        rgba(255,255,255,0.08);
+  --bg-elevated:    rgba(255,255,255,0.12);
+  --bg-sidebar:     #2D1B69;
+  --bg-topbar:      rgba(26,5,51,0.85);
+  --text-primary:   #F3E8FF;
+  --text-secondary: #D8B4FE;
+  --text-muted:     #A78BFA;
+  --border-default: rgba(167,139,250,0.25);
+  --border-subtle:  rgba(167,139,250,0.1);
+  --shadow-card:    0 4px 24px rgba(124,58,237,0.2), 0 1px 4px rgba(0,0,0,0.3);
+  --input-bg:       rgba(255,255,255,0.08);
+  --input-border:   rgba(167,139,250,0.35);
+}
+
+html.theme-colorful body {
+  background: linear-gradient(160deg,
+    #1a0533 0%,
+    #0d1b4b 40%,
+    #0a3352 70%,
+    #0d2a1f 100%
+  ) fixed !important;
+  color: #E8D5FF;
+  min-height: 100vh;
+}
+
+/* Colorful: main content area */
+html.theme-colorful main {
+  background: transparent !important;
+  min-height: 100vh;
+}
+
+/* Colorful: cards with inline dark backgrounds */
+html.theme-colorful [style*="#111827"],
+html.theme-colorful [style*="111827"] {
+  background-color: #FFFFFF !important;
+  border-color: rgba(124,58,237,0.15) !important;
+}
+
+html.theme-colorful [style*="#0D1220"],
+html.theme-colorful [style*="0D1220"] {
+  background-color: #F3F0FF !important;
+}
+
+/* Colorful: topbar */
+html.theme-colorful header.theme-topbar {
+  background: rgba(253,244,255,0.94) !important;
+  border-bottom: 1px solid rgba(124,58,237,0.18) !important;
+  backdrop-filter: blur(20px);
+}
+
+html.theme-colorful header.theme-topbar h1 {
+  color: #1A0533 !important;
+}
+
+html.theme-colorful header.theme-topbar p {
+  color: #7C3AED !important;
+}
+
+/* Colorful: sidebar is deep purple */
+html.theme-colorful aside {
+  background: linear-gradient(180deg, #1A0533 0%, #0D1B4B 100%) !important;
+  border-right: 1px solid rgba(167,139,250,0.25) !important;
+}
+
+/* Colorful: scrollbar */
+html.theme-colorful ::-webkit-scrollbar-track {
+  background: #F3F0FF;
+}
+html.theme-colorful ::-webkit-scrollbar-thumb {
+  background: rgba(124,58,237,0.3);
+  border-radius: 4px;
+}
+html.theme-colorful ::-webkit-scrollbar-thumb:hover {
+  background: rgba(124,58,237,0.5);
+}

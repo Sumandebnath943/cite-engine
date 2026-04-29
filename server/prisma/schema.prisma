@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id              String         @id @default(cuid())
+  email           String         @unique
+  password        String
+  name            String?
+  createdAt       DateTime       @default(now())
+  resumes         Resume[]
+  conversations   Conversation[]
+  radarProfile    RadarProfile?
+}
+
+model Resume {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id])
+  filename         String
+  rawText          String
+  targetRole       String?
+  translatedResume String?
+  learningPath     String?
+  createdAt        DateTime @default(now())
+}
+
+model Conversation {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  scenario  String
+  tone      String?
+  script    String?
+  messages  String?
+  createdAt DateTime @default(now())
+}
+
+model RadarProfile {
+  id             String    @id @default(cuid())
+  userId         String    @unique
+  user           User      @relation(fields: [userId], references: [id])
+  jobTitle       String
+  employer       String
+  industry       String
+  skills         String
+  securityScore  Int?
+  lastScanResult String?
+  lastScannedAt  DateTime?
+  createdAt      DateTime  @default(now())
+}
