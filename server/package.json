@@ -28,7 +28,7 @@
     "@types/jsonwebtoken": "^9.0.10",
     "@types/multer": "^1.4.11",
     "@types/node": "^20.19.39",
-    "@types/uuid": "^9.0.8",
+    "@types/uuid": "^9.0.8"
   },
   "devDependencies": {
     "pg": "^8.20.0",
